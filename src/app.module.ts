@@ -1,24 +1,27 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersController } from './users/users.controller';
 import { UsersModule } from './users/users.module';
-import { LoginController } from './login/login.controller';
 import { LoginModule } from './login/login.module';
 import { EmployeeController } from './employee/employee.controller';
 import { EmployeeModule } from './employee/employee.module';
 import { DepartmentController } from './department/department.controller';
 import { DepartmentModule } from './department/department.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [UsersModule, LoginModule, EmployeeModule, DepartmentModule],
-  controllers: [
-    AppController,
-    UsersController,
-    LoginController,
-    EmployeeController,
-    DepartmentController,
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    MongooseModule.forRoot('mongodb://localhost/nest'),
+    UsersModule,
+    LoginModule,
+    EmployeeModule,
+    DepartmentModule,
   ],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
