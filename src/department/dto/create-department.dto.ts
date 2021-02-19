@@ -13,3 +13,14 @@ export class CreateDepartmentDto {
   @Length(5, 25, { message: 'Họ tên từ 5 - 25 kí tự' })
   manager: string;
 }
+
+// {
+//   "name" : "Phongvu99",
+//   "officephone" : "0392484728",
+//   "manager" : "Nhan vien "
+// }
+
+// {
+//   "username" : "Phong Ha 01",
+//  "password" : "12345678",
+//  }

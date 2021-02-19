@@ -15,5 +15,24 @@ export class CreateUserDto {
   @IsNotEmpty({ message: 'Chức vụ không được bỏ trống' })
   role: string;
 
-  loginfirst: boolean;
+  loginfirst: string;
 }
+
+// {
+//   "username" : "Phong Ha 01",
+//  "password" : "12345678",
+//  }
+
+// {
+//   "username"  : "NguyenPhuong9999",
+//   "password" : "123456789999",
+//   "email" :"nguyenphuon99g@gmail.com",
+//   "role" : "check ",
+//   "loginfirst" : "true",
+// }
+
+// -------------
+// {
+//   "username" : "Phong Ha 01",
+//   "password" : "12345678",
+// }

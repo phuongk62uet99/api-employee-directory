@@ -17,5 +17,5 @@ export class UpdateUserDto extends PartialType(CreateUserDto) {
   @IsNotEmpty({ message: 'Chức vụ không được bỏ trống' })
   role: string;
 
-  loginfirst: boolean;
+  loginfirst: string;
 }

@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { DepartmentDocument, Department } from './schemas/department.schemas';
@@ -16,12 +16,8 @@ export class DepartmentService {
     createDepartmentDto: CreateDepartmentDto,
     res: any,
   ): Promise<DepartmentDocument> {
-    const checkDepartment = await this.DepartmentModel.findOne({
-      name: createDepartmentDto.name,
-    });
-    if (checkDepartment)
-      throw new HttpException('Phòng ban đã tồn tại ', HttpStatus.BAD_REQUEST);
     const depart = await this.DepartmentModel.create(createDepartmentDto);
+    console.log('Check dep : ', createDepartmentDto);
     return depart;
   }
 

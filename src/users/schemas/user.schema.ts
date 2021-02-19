@@ -18,7 +18,7 @@ export class User {
   role: string;
 
   @Prop()
-  loginfirst: boolean;
+  loginfirst: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

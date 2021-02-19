@@ -12,9 +12,9 @@ export class EmployeeService {
   constructor(
     @InjectModel(Employee.name) private EmployeeModel: Model<EmployeeDocument>,
   ) {}
+
   async create(
     createEmployeeDto: CreateEmployeeDto,
-    file: any,
   ): Promise<
     | {
         message: string;
@@ -35,7 +35,8 @@ export class EmployeeService {
     if (checkPhone)
       throw new HttpException('Phone is exist', HttpStatus.BAD_REQUEST);
 
-    createEmployeeDto.photo = file.filename;
+    console.log('createEmployeeDto : ', createEmployeeDto);
+
     const create = await this.EmployeeModel.create(createEmployeeDto);
     return {
       message: 'Tạo thành công',
