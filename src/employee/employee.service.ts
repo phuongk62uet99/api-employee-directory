@@ -22,18 +22,18 @@ export class EmployeeService {
       }
     | { message: string }
   > {
-    const [checkEmail, checkPhone] = await Promise.all([
-      this.EmployeeModel.findOne({
-        email: createEmployeeDto.email,
-      }),
-      this.EmployeeModel.findOne({
-        cellphone: createEmployeeDto.cellphone,
-      }),
-    ]);
-    if (checkEmail)
-      throw new HttpException('Email is exist', HttpStatus.BAD_REQUEST);
-    if (checkPhone)
-      throw new HttpException('Phone is exist', HttpStatus.BAD_REQUEST);
+    // const [checkEmail, checkPhone] = await Promise.all([
+    //   this.EmployeeModel.findOne({
+    //     email: createEmployeeDto.email,
+    //   }),
+    //   this.EmployeeModel.findOne({
+    //     cellphone: createEmployeeDto.cellphone,
+    //   }),
+    // ]);
+    // if (checkEmail)
+    //   throw new HttpException('Email is exist', HttpStatus.BAD_REQUEST);
+    // if (checkPhone)
+    //   throw new HttpException('Phone is exist', HttpStatus.BAD_REQUEST);
 
     console.log('createEmployeeDto : ', createEmployeeDto);
 
@@ -52,6 +52,18 @@ export class EmployeeService {
   async findOne(id: string): Promise<EmployeeDocument> {
     const updateOne = await this.EmployeeModel.findById(id);
     return updateOne;
+  }
+
+  async update(
+    id: string,
+    updateEmployeeDto: UpdateEmployeeDto,
+  ): Promise<EmployeeDocument> {
+    const updateDepart = await this.EmployeeModel.findByIdAndUpdate(
+      id,
+      updateEmployeeDto,
+      { new: true },
+    );
+    return updateDepart;
   }
 
   async remove(id: string): Promise<EmployeeDocument> {

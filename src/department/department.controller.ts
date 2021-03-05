@@ -53,17 +53,17 @@ export class DepartmentController {
       updateDepartmentDto,
     );
     return {
-      message: 'Cap nhat thanh cong',
+      message: 'Cập nhật thông tin thành công',
       updateDepart,
     };
   }
 
   @Delete(':id')
   async remove(@Param('id') id: string) {
-    const dlt = await this.departmentService.remove(id);
+    const dele = await this.departmentService.remove(id);
     return {
       message: 'Xóa thành công',
-      dlt,
+      dele,
     };
   }
 }

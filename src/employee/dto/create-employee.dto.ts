@@ -41,15 +41,4 @@ export class CreateEmployeeDto {
 //     },
 // }
 
-// {
-//   "name" : "check 01",
-//    "photo" : "Neuww photo ",
-//    "jobtitle" : "check job",
-//    "cellphone" : "0392483272",
-//    "email" : "nguyenvjdkd",
-//    "department_id" : {
-//     "name": "Nhân sự",
-//     "officephone": "0392483273",
-//     "manager": "giam doc",
-//     },
-// }
+

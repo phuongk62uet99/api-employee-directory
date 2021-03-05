@@ -42,7 +42,7 @@ export class DepartmentService {
   }
 
   async remove(id: string): Promise<DepartmentDocument> {
-    const dlt = await this.DepartmentModel.findByIdAndDelete(id);
-    return dlt;
+    const dele = await this.DepartmentModel.findByIdAndDelete(id);
+    return dele;
   }
 }

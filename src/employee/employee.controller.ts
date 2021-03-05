@@ -14,6 +14,7 @@ import {
 } from '@nestjs/common';
 import { EmployeeService } from './employee.service';
 import { CreateEmployeeDto } from './dto/create-employee.dto';
+import { UpdateEmployeeDto } from './dto/update-employee.dto';
 
 @Controller('employee')
 export class EmployeeController {
@@ -34,6 +35,18 @@ export class EmployeeController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.employeeService.findOne(id);
+  }
+
+  @Put(':id')
+  async update(
+    @Param('id') id: any,
+    @Body() updateEmployeeDto: UpdateEmployeeDto,
+  ) {
+    const updateEpl = await this.employeeService.update(id, updateEmployeeDto);
+    return {
+      message: 'Cap nhat thanh cong',
+      updateEpl,
+    };
   }
 
   @Delete(':id')
